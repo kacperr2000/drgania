@@ -607,7 +607,7 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plt.show()
 
 
-# drg_swobodne(0.02, 0.01425, 0.5, 0.5)
+# drg_swobodne(-0.02, -0.01425, 0.5, 0.5)
 # drg_tlumione(0.5, 1.4, 5.7, 10, 22)
 # drg_wymuszone(2, 7, 5, 5, 0.612372)
 

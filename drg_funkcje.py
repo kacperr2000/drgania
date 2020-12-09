@@ -25,10 +25,10 @@ def drg_swobodne(x_0, v_0, m, k):
         fase_shift = (-1) * v_0 / (x_0 * omega_0)
 
         # Wyswietlanie:
-        print('Amplituda drgan wynosi: %f m\n' % np.abs(amplitude))
-        print('Przesuniecie fazowe wynosi: %f rad\n' % fase_shift)
-        print('Okres drgan wynosi: %f s\n' % period)
-        print('Czestotliowsc drgan wynosi: %f Hz\n' % freq)
+        print('Amplituda drgan wynosi: %f m.\n' % np.abs(amplitude))
+        print('Przesuniecie fazowe wynosi: %f rad.\n' % fase_shift)
+        print('Okres drgan wynosi: %f s.\n' % period)
+        print('Czestotliowsc drgan wynosi: %f Hz.\n' % freq)
 
         # Zapis do pliku:
         """
@@ -426,7 +426,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
         print('Stala B wynosi %f m.\n' % B)
         print('Czestosc wlasna ukladu wynosi: %f 1/s.\n' % omega_0)
         print('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
-        print('Pseudo-czestosc drgan wynosi: %f 1/s.\n' % pseudo_omega)
+        print('Pseudo-czestosc drgan (taka czestosc mialyby drgania gdyby mogly zajsc) wynosi: %f 1/s.\n' % pseudo_omega)
 
         # Zapis do pliku:
         """
@@ -438,7 +438,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
         plik.write('Stala B wynosi %f m.\n' % B)
         plik.write('Czestosc wlasna ukladu wynosi: %f 1/s.\n' % omega_0)
         plik.write('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
-        plik.write('Pseudo-czestosc drgan wynosi: %f 1/s.\n' % pseudo_omega)
+        plik.write('Pseudo-czestosc drgan (taka czestosc mialyby drgania gdyby mogly zajsc) wynosi: %f 1/s.\n' % pseudo_omega)
         plik.close()
         """
 
@@ -489,9 +489,16 @@ def drg_wymuszone(m, k, f, force_0, omega):
     beta = f / (2 * m)
     pseudo_omega = np.power(omega_0, 2) - np.power(omega, 2)
     z = np.sqrt(np.power(pseudo_omega, 2) + 4 * np.power(beta, 2) * np.power(omega, 2))
-    omega_r = np.sqrt(np.power(omega_0, 2) - 2 * np.power(beta, 2))
-    period_r = 2 * np.pi / omega_r
-    freq_r = 1 / period_r
+    pre_omega_r = np.power(omega_0, 2) - 2 * np.power(beta, 2)
+    if pre_omega_r < 0:
+        omega_r = 0
+        period_r = 0
+        freq_r = 0
+
+    else:
+        omega_r = np.sqrt(pre_omega_r)
+        period_r = 2 * np.pi / omega_r
+        freq_r = 1 / period_r
 
     if beta != 0 or (beta == 0 and np.power(omega_0, 2) != np.power(omega, 2)):
         # Obliczenia:
@@ -505,8 +512,14 @@ def drg_wymuszone(m, k, f, force_0, omega):
         print('Okres drgan wlasnych wynosi: %f s.\n' % period_0)
         print('Czestotliwosc drgan wlasnych wynosi: %f 1/s.\n' % freq_0)
         print('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
-        print('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
-        print('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r)
+        if pre_omega_r < 0:
+            print('Czestosc rezonansowa nieokreslona.\n')
+            print('Czestotliwosc rezonansowa nieokreslona.\n')
+
+        else:
+            print('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
+            print('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r)
+
         print('Impedancja mechaniczna wynosi: %f kg/s.\n' % imped)
         print('Amplituda absorpcyjna wynosi: %f m.\n' % np.abs(a_ab))
         print('Amplituda elastyczna wynosi: %f m.\n' % np.abs(a_el))
@@ -518,6 +531,14 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plik.write('Okres drgan wlasnych wynosi: %f s.\n' % period_0)
         plik.write('Czestotliwosc drgan wlasnych wynosi: %f 1/s.\n' % freq_0)
         plik.write('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
+        if pre_omega_r < 0:
+            plik.write('Czestosc rezonansowa nieokreslona.\n')
+            plik.write('Czestotliwosc rezonansowa nieokreslona.\n')
+            
+        else:
+            plik.write('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
+            plik.write('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r)
+        
         plik.write('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
         plik.write('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r)
         plik.write('Impedancja mechaniczna wynosi: %f kg/s.\n' % imped)
@@ -566,8 +587,14 @@ def drg_wymuszone(m, k, f, force_0, omega):
         print('Okres drgan wlasnych wynosi: %f s.\n' % period_0)
         print('Czestotliwosc drgan wlasnych wynosi: %f 1/s.\n' % freq_0)
         print('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
-        print('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
-        print('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r)
+        if pre_omega_r < 0:
+            print('Czestosc rezonansowa nieokreslona.\n')
+            print('Czestotliwosc rezonansowa nieokreslona.\n')
+
+        else:
+            print('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
+            print('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r)
+
         print('Impedancja mechaniczna wynosi: %f kg/s.\n' % imped)
         print('Amplituda dąży do nieskończoności.\n')
         print('Amplitudy absorbcyjna i elastyczna również.\n')
@@ -578,6 +605,14 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plik.write('Okres drgan wlasnych wynosi: %f s.\n' % period_0)
         plik.write('Czestotliwosc drgan wlasnych wynosi: %f 1/s.\n' % freq_0)
         plik.write('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
+        if pre_omega_r < 0:
+            plik.write('Czestosc rezonansowa nieokreslona.\n')
+            plik.write('Czestotliwosc rezonansowa nieokreslona.\n')
+            
+        else:
+            plik.write('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
+            plik.write('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r) 
+        
         plik.write('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
         plik.write('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r)
         plik.write('Impedancja mechaniczna wynosi: %f kg/s.\n' % imped)
@@ -607,9 +642,9 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plt.show()
 
 
-# drg_swobodne(-0.02, -0.01425, 0.5, 0.5)
-# drg_tlumione(0.5, 1.4, 5.7, 10, 22)
-# drg_wymuszone(2, 7, 5, 5, 0.612372)
+# drg_swobodne(0.05, 1, 0.5, 2.75)
+# drg_tlumione(0.09, 0.01, 0.509, 2.15, 1)
+# drg_wymuszone(0.5, 3.44, 0.5, 1, 1.4)
 
 
 

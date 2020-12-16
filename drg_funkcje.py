@@ -642,11 +642,6 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plt.show()
 
 
-# drg_swobodne(0.05, 1, 0.5, 2.75)
-# drg_tlumione(0.09, 0.01, 0.509, 2.15, 1)
-# drg_wymuszone(0.5, 3.44, 0.5, 1, 1.4)
-
-
 
 
 

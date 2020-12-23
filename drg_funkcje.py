@@ -2,6 +2,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
+
 
 def drg_swobodne(x_0, v_0, m, k):
     """
@@ -156,6 +158,7 @@ def drg_swobodne(x_0, v_0, m, k):
         plt.title('Wykres funkcji drgań swobodnych postaci: Acos(wt+q)')
         # plt.savefig('drg_swob.png', dpi=72)
         plt.show()
+
 
 def drg_tlumione(x_0, v_0, m, k, f):
     """
@@ -470,6 +473,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
         # plt.savefig('drg_tl.png', dpi=72)
         plt.show()
 
+
 def drg_wymuszone(m, k, f, force_0, omega):
     """
     Funkcja po przyjeciu wymaganych parametrow generuje wykres
@@ -642,7 +646,154 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plt.show()
 
 
+def dod_drgan():
+    """
+    Ta funkcja pobiera od uzytkownika dlugosc struny oraz parametry wybranej
+    liczby fal stacjonarnych po czym sumuje je modelujac ksztalt powstalego
+    zaburzenia na strunie.
 
+    :return:
+    """
+    print(70 * '-')
+    print('Ta funkcja dodaje do siebie fale stacjonarne na strunie o wybranej dlugosci.\n')
+    print('Na poczatku nalezy podac niezbedne dane.\n')
+    print(70 * '-')
 
+    # Zbieranie wymaganych parametrow
+    print('Podaj dlugosc struny(w m):\n')
+    print('Uwaga! Struna moze miec maksymalnie 3m.\n')
+    dlugosc = input()
+    try:
+        dl = float(dlugosc)
+
+    except ValueError:
+        print('Niewlasciwy typ danych.\n')
+        print('Dzialanie programu zostalo przerwane.\n')
+        sys.exit(0)
+
+    if dl <= 0:
+        print('Dlugosc musi byc dodatnia.\n')
+        print('Dzialanie programu zostalo przerwane.\n')
+        sys.exit(0)
+
+    elif dl > 3:
+        print('Niepoprawna dlugosc struny.\n')
+        print('Struna nie powinna byc dluzsza niz 3 metry.\n')
+        print('Dzialanie programu zostalo przerwane.\n')
+        sys.exit(0)
+
+    else:
+        dl = dl
+
+    print('Nastepnie nalezy wybrac ilosc skladanych fal.\n')
+    print('Ile fal chcesz zlozyc?:\n')
+    print('uwaga! Maksymalnie mozesz zlozyc 20 fal.\n')
+    liczba = input()
+    try:
+        li = int(liczba)
+
+    except ValueError:
+        print('Niewlasciwy typ danych.\n')
+        print('Dzialanie programu zostalo przerwane.\n')
+        sys.exit(0)
+
+    if li <= 0:
+        print('Wybrana ilosc musi byc liczba dodatnia.\n')
+        print('Dzialanie programu zostalo przerwane.\n')
+        sys.exit(0)
+
+    elif li > 20:
+        print('Niepoprawna ilosc fal.\n')
+        print('Program sklada maksymalnie 20 fal.\n')
+        print('Dzialanie programu zostalo przerwane.\n')
+        sys.exit(0)
+
+    else:
+        li = li
+
+    am_lim = 0.2 * dl
+    amplitudy = []
+    l_falowe = []
+    prz_fazowe = []
+    for i in range(li):
+        print('Podaj parametry %i fali:\n' % (i + 1))
+        print('Podaj amplitude(w m):\n')
+        print('Uwaga! Amplituda moze miec maksymalnie %f m.\n' % am_lim)
+        amplituda = input()
+        try:
+            am = float(amplituda)
+
+        except ValueError:
+            print('Niewlasciwy typ danych.\n')
+            print('Dzialanie programu zostalo przerwane.\n')
+            sys.exit(0)
+
+        if am <= 0:
+            print('Amplituda musi byc liczba dodatnia.\n')
+            print('Dzialanie programu zostalo przerwane.\n')
+            sys.exit(0)
+
+        elif am > am_lim:
+            print('Niepoprawna wartosc amplitudy.\n')
+            print('Maksymalna amplituda musi miec maksymalnie %f metra.\n' % am_lim)
+            print('Dzialanie programu zostalo przerwane.\n')
+            sys.exit(0)
+
+        else:
+            amplitudy.append(am)
+
+        print('Podaj liczbe falowa(w 1/m):\n')
+        print('Uwaga! Liczba falowa moze wynosic maksymalnie 15 1/m.\n')
+        l_fal = input()
+        try:
+            l_f = float(l_fal)
+
+        except ValueError:
+            print('Niewlasciwy typ danych.\n')
+            print('Dzialanie programu zostalo przerwane.\n')
+            sys.exit(0)
+
+        if l_f <= 0:
+            print('Liczba falowa musi byc liczba dodatnia.\n')
+            print('Dzialanie programu zostalo przerwane.\n')
+            sys.exit(0)
+
+        elif l_f > 15:
+            print('Niepoprawna wartosc liczby falowej.\n')
+            print('Wartosc liczby falowej musi miec maksymalnie 15 1/m.\n')
+            print('Dzialanie programu zostalo przerwane.\n')
+            sys.exit(0)
+
+        else:
+            l_falowe.append(l_f)
+
+        print('Podaj przesuniecie fazowe(w rad):\n')
+        p_fazowe = input()
+        try:
+            p_f = float(p_fazowe)
+
+        except ValueError:
+            print('Niewlasciwy typ danych.\n')
+            print('Dzialanie programu zostalo przerwane.\n')
+            sys.exit(0)
+
+        p_f = p_f
+        prz_fazowe.append(p_f)
+
+    # Generowanie wykresu
+    x = np.linspace(0, dl, 500)
+    # print(x)
+    y = 0
+    for i in range(li):
+        y += amplitudy[i] * np.cos(l_falowe[i] * x + prz_fazowe[i])
+
+    plt.plot(x, y, color='r', lw=1, ls='-', label='f(x) = A1*cos(k1*t+q1) + ... + An*cos(kn*t+qn)')
+    plt.legend(loc='upper right')
+    plt.xlabel('x', fontsize=8)
+    plt.ylabel('f(x)', fontsize=8)
+    plt.grid(True)
+    plt.title('Suma danych fal na strunie o dlugości %f m.' % dl)
+    # plt.savefig('skl_drgan.png', dpi=72)
+    plt.show()
 
 

@@ -21,16 +21,18 @@ print(70 * '-')
 print('Ten program zajmuje sie modelowaniem ruchu drgajacego.\n')
 print('Obslugiwane sa trzy podstawowe postacie drgan:\n')
 print('drgania swobodne, drgania tlumione i drgania wymuszone.\n')
+print('Uzytkownik moze rowniez wybrac funkcje skladajaca fale stacjonarne na strunie o zadanej dlugosci.\n')
 print(70 * '-')
 print('Jaka postac drgan chcesz rozpatrzec?\n')
 print('Nacisnij 1 jezeli wybierasz drgania swobodne.\n')
 print('Nacisnij 2 jezeli wybierasz drgania tlumione.\n')
 print('Nacisnij 3 jezeli wybierasz drgania wymuszone.\n')
+print('Nacisnij 4 jezeli wybierasz skladanie fal.\n')
 
 wybor = input()
 
-if wybor != '1' and wybor != '2' and wybor != '3':
-    print('Podano niewlasciwy znak/znaki. Dozwolone sa tylko 1, 2 lub 3.\n')
+if wybor != '1' and wybor != '2' and wybor != '3' and wybor != '4':
+    print('Podano niewlasciwy znak/znaki. Dozwolone sa tylko 1, 2, 3 lub 4.\n')
     print('Dzialanie programu zostalo przerwane.\n')
     sys.exit(0)
 
@@ -299,11 +301,9 @@ else:
 
         drg_wymuszone(m, w_spr, w_tl, f_0, om)
 
-
-
-
-
-
-
-
+    elif w == 4:
+        print(70 * '-')
+        print('Wybrano skladanie fal.\n')
+        print(70 * '-')
+        dod_drgan()
 

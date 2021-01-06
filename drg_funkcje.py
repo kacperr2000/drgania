@@ -33,14 +33,12 @@ def drg_swobodne(x_0, v_0, m, k):
         print('Czestotliowsc drgan wynosi: %f Hz.\n' % freq)
 
         # Zapis do pliku:
-        """
         plik = open('dane_drg_swb.doc', 'w')
         plik.write('Amplituda drgan wynosi: %f m\n' % np.abs(amplitude))
         plik.write('Przesuniecie fazowe wynosi: %f rad\n' % fase_shift)
         plik.write('Okres drgan wynosi: %f s\n' % period)
         plik.write('Czestotliowsc drgan wynosi: %f Hz\n' % freq)
         plik.close()
-        """
 
         # Generowanie wykresu:
         t = np.linspace(0, 50, 500)
@@ -52,7 +50,7 @@ def drg_swobodne(x_0, v_0, m, k):
         plt.ylabel('f(t)', fontsize=8)
         plt.grid(True)
         plt.title('Wykres funkcji drgań swobodnych postaci: Acos(wt+q)')
-        # plt.savefig('drg_swob.png', dpi=72)
+        plt.savefig('drg_swob.png', dpi=72)
         plt.show()
 
     elif x_0 == 0 and v_0 != 0:
@@ -67,14 +65,12 @@ def drg_swobodne(x_0, v_0, m, k):
         print('Czestotliowsc drgan wynosi: %f Hz\n' % freq)
 
         # Zapis do pliku:
-        """
         plik = open('dane_drg_swb.doc', 'w')
         plik.write('Amplituda drgan wynosi: %f m\n' % np.abs(amplitude))
         plik.write('Przesuniecie fazowe wynosi: %f rad\n' % fase_shift)
         plik.write('Okres drgan wynosi: %f s\n' % period)
         plik.write('Czestotliowsc drgan wynosi: %f Hz\n' % freq)
         plik.close()
-        """
 
         # Generowanie wykresu:
         t = np.linspace(0, 50, 500)
@@ -86,7 +82,7 @@ def drg_swobodne(x_0, v_0, m, k):
         plt.ylabel('f(t)', fontsize=8)
         plt.grid(True)
         plt.title('Wykres funkcji drgań swobodnych postaci: Acos(wt+q)')
-        # plt.savefig('drg_swob.png', dpi=72)
+        plt.savefig('drg_swob.png', dpi=72)
         plt.show()
 
     elif x_0 != 0 and v_0 == 0:
@@ -101,14 +97,12 @@ def drg_swobodne(x_0, v_0, m, k):
         print('Czestotliowsc drgan wynosi: %f Hz\n' % freq)
 
         # Zapis do pliku:
-        """
         plik = open('dane_drg_swb.doc', 'w')
         plik.write('Amplituda drgan wynosi: %f m\n' % np.abs(amplitude))
         plik.write('Przesuniecie fazowe wynosi: %f rad\n' % fase_shift)
         plik.write('Okres drgan wynosi: %f s\n' % period)
         plik.write('Czestotliowsc drgan wynosi: %f Hz\n' % freq)
         plik.close()
-        """
 
         # Generowanie wykresu:
         t = np.linspace(0, 50, 500)
@@ -120,7 +114,7 @@ def drg_swobodne(x_0, v_0, m, k):
         plt.ylabel('f(t)', fontsize=8)
         plt.grid(True)
         plt.title('Wykres funkcji drgań swobodnych postaci: Acos(wt+q)')
-        # plt.savefig('drg_swob.png', dpi=72)
+        plt.savefig('drg_swob.png', dpi=72)
         plt.show()
 
     elif x_0 == 0 and v_0 == 0:
@@ -136,7 +130,6 @@ def drg_swobodne(x_0, v_0, m, k):
         print('Nalezy miec na uwadze, ze przy zerowej amplitudzie okres czy czestotliwosc nie maja sensu fizycznego.\n')
 
         # Zapis do pliku:
-        """
         plik = open('dane_drg_swb.doc', 'w')
         plik.write('Amplituda drgan wynosi: %f m\n' % np.abs(amplitude))
         plik.write('Przesuniecie fazowe wynosi: %f rad\n' % fase_shift)
@@ -144,7 +137,6 @@ def drg_swobodne(x_0, v_0, m, k):
         plik.write('Czestotliowsc drgan wynosi: %f Hz\n' % freq)
         print('Nalezy miec na uwadze, ze przy zerowej amplitudzie okres czy czestotliwosc nie maja sensu fizycznego.\n')
         plik.close()
-        """
 
         # Generowanie wykresu:
         t = np.linspace(0, 50, 500)
@@ -156,7 +148,7 @@ def drg_swobodne(x_0, v_0, m, k):
         plt.ylabel('f(t)', fontsize=8)
         plt.grid(True)
         plt.title('Wykres funkcji drgań swobodnych postaci: Acos(wt+q)')
-        # plt.savefig('drg_swob.png', dpi=72)
+        plt.savefig('drg_swob.png', dpi=72)
         plt.show()
 
 
@@ -203,7 +195,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
             print('Logarytmiczny dekrement tlumienia wynosi: %f.\n' % log_dec)
 
             # Zapis do pliku:
-            """
             plik = open('dane_drg_tl.doc', 'w')
             plik.write('Okres drgan swobodnych wynosi: %f s.\n' % period_0)
             plik.write('Czestotliwosc drgan swobodnych wynosi: %f Hz.\n' % freq_0)
@@ -216,7 +207,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
             plik.write('Maksymalna amplituda wynosi: %f m.\n' % np.abs(amplitude))
             plik.write('Logarytmiczny dekrement tlumienia wynosi: %f.\n' % log_dec)
             plik.close()
-            """
 
             # Generowanie wykresu:
             t = np.linspace(0, 50, 500)
@@ -228,7 +218,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
             plt.ylabel('f(t)', fontsize=8)
             plt.grid(True)
             plt.title('Wykres funkcji drgań tlumionych postaci: Aexp(-bt)cos(wt+q)')
-            # plt.savefig('drg_tl.png', dpi=72)
+            plt.savefig('drg_tl.png', dpi=72)
             plt.show()
 
         elif x_0 == 0 and v_0 != 0:
@@ -248,7 +238,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
             print('Logarytmiczny dekrement tlumienia wynosi: %f.\n' % log_dec)
 
             # Zapis do pliku:
-            """
             plik = open('dane_drg_tl.doc', 'w')
             plik.write('Okres drgan swobodnych wynosi: %f s.\n' % period_0)
             plik.write('Czestotliwosc drgan swobodnych wynosi: %f Hz.\n' % freq_0)
@@ -261,7 +250,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
             plik.write('Maksymalna amplituda wynosi: %f m.\n' % np.abs(amplitude))
             plik.write('Logarytmiczny dekrement tlumienia wynosi: %f.\n' % log_dec)
             plik.close()
-            """
+
             # Generowanie wykresu:
             t = np.linspace(0, 50, 500)
             x = amplitude * np.exp((-1) * beta * t) * np.cos(omega * t + fase_shift)
@@ -272,7 +261,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
             plt.ylabel('f(t)', fontsize=8)
             plt.grid(True)
             plt.title('Wykres funkcji drgań tlumionych postaci: Aexp(-bt)cos(wt+q)')
-            # plt.savefig('drg_tl.png', dpi=72)
+            plt.savefig('drg_tl.png', dpi=72)
             plt.show()
 
         elif x_0 != 0 and v_0 == 0:
@@ -292,7 +281,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
             print('Logarytmiczny dekrement tlumienia wynosi: %f.\n' % log_dec)
 
             # Zapis do pliku:
-            """
             plik = open('dane_drg_tl.doc', 'w')
             plik.write('Okres drgan swobodnych wynosi: %f s.\n' % period_0)
             plik.write('Czestotliwosc drgan swobodnych wynosi: %f Hz.\n' % freq_0)
@@ -305,7 +293,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
             plik.write('Maksymalna amplituda wynosi: %f m.\n' % np.abs(amplitude))
             plik.write('Logarytmiczny dekrement tlumienia wynosi: %f.\n' % log_dec)
             plik.close()
-            """
+
             # Generowanie wykresu:
             t = np.linspace(0, 50, 500)
             x = amplitude * np.exp((-1) * beta * t) * np.cos(omega * t + fase_shift)
@@ -316,7 +304,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
             plt.ylabel('f(t)', fontsize=8)
             plt.grid(True)
             plt.title('Wykres funkcji drgań tlumionych postaci: Aexp(-bt)cos(wt+q)')
-            # plt.savefig('drg_tl.png', dpi=72)
+            plt.savefig('drg_tl.png', dpi=72)
             plt.show()
 
         elif x_0 == 0 and v_0 == 0:
@@ -337,7 +325,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
             print('Nalezy miec na uwadze, ze przy zerowej amplitudzie okres czy czestotliwosc nie maja sensu fizycznego.\n')
 
             # Zapis do pliku:
-            """
             plik = open('dane_drg_tl.doc', 'w')
             plik.write('Okres drgan swobodnych wynosi: %f s.\n' % period_0)
             plik.write('Czestotliwosc drgan swobodnych wynosi: %f Hz.\n' % freq_0)
@@ -349,9 +336,9 @@ def drg_tlumione(x_0, v_0, m, k, f):
             plik.write('Przesuniecie fazowe wynosi: %f rad.\n' % fase_shift)
             plik.write('Maksymalna amplituda wynosi: %f m.\n' % np.abs(amplitude))
             plik.write('Logarytmiczny dekrement tlumienia wynosi: %f.\n' % log_dec)
-            plik,write('Nalezy miec na uwadze, ze przy zerowej amplitudzie okres czy czestotliwosc nie maja sensu fizycznego.\n')
+            plik.write('Nalezy miec na uwadze, ze przy zerowej amplitudzie okres czy czestotliwosc nie maja sensu fizycznego.\n')
             plik.close()
-            """
+
             # Generowanie wykresu:
             t = np.linspace(0, 50, 500)
             x = amplitude * np.exp((-1) * beta * t) * np.cos(omega * t + fase_shift)
@@ -362,7 +349,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
             plt.ylabel('f(t)', fontsize=8)
             plt.grid(True)
             plt.title('Wykres funkcji drgań tlumionych postaci: Aexp(-bt)cos(wt+q)')
-            # plt.savefig('drg_tl.png', dpi=72)
+            plt.savefig('drg_tl.png', dpi=72)
             plt.show()
 
     elif np.power(omega_0, 2) == np.power(beta, 2):
@@ -379,7 +366,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
         print('Wspolczynnik tlumienia (jednoczesnie wartosc czestosci drgan wlasnych) wynosi: %f 1/s.\n' % beta)
 
         # Zapis do pliku:
-        """
         plik = open('dane_drg_tl.doc', 'w')
         plik.write('Przypadek tlumienia krytycznego.\n')
         plik.write('Zaleznosc x(t) ma postac: x(t) = (A + Bt)exp(-bt).\n')
@@ -387,7 +373,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
         plik.write('Stala B wynosi %f m/s.\n' % B)
         plik.write('Wspolczynnik tlumienia (jednoczesnie wartosc czestosci drgan wlasnych) wynosi: %f 1/s.\n' % beta)
         plik.close()
-        """
 
         # Generowanie wykresu:
         t = np.linspace(0, 50, 500)
@@ -411,7 +396,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
         plt.ylabel('f(t)', fontsize=8)
         plt.grid(True)
         plt.title('Wykres funkcji drgań tlumionych postaci: (A + Bt)exp(-bt)')
-        # plt.savefig('drg_tl.png', dpi=72)
+        plt.savefig('drg_tl.png', dpi=72)
         plt.show()
 
     elif np.power(omega_0, 2) < np.power(beta, 2):
@@ -432,7 +417,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
         print('Pseudo-czestosc drgan (taka czestosc mialyby drgania gdyby mogly zajsc) wynosi: %f 1/s.\n' % pseudo_omega)
 
         # Zapis do pliku:
-        """
         plik = open('dane_drg_tl.doc', 'w')
         plik.write('Przypadek drgan przetlumionych.\n')
         plik.write('Zaleznosc x(t) ma postac: x(t) = exp(-bt)(Aexp(wt) + Bexp(-wt)).\n')
@@ -443,7 +427,6 @@ def drg_tlumione(x_0, v_0, m, k, f):
         plik.write('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
         plik.write('Pseudo-czestosc drgan (taka czestosc mialyby drgania gdyby mogly zajsc) wynosi: %f 1/s.\n' % pseudo_omega)
         plik.close()
-        """
 
         # Generowanie wykresu:
         t = np.linspace(0, 50, 500)
@@ -470,7 +453,7 @@ def drg_tlumione(x_0, v_0, m, k, f):
         plt.ylabel('f(t)', fontsize=8)
         plt.grid(True)
         plt.title('Wykres funkcji drgań tlumionych postaci: exp(-bt)[Aexp(wt) + Bexp(wt)]')
-        # plt.savefig('drg_tl.png', dpi=72)
+        plt.savefig('drg_tl.png', dpi=72)
         plt.show()
 
 
@@ -508,6 +491,7 @@ def drg_wymuszone(m, k, f, force_0, omega):
         # Obliczenia:
         amplitude = force_0 / (omega * z)
         imped = np.sqrt(np.power(f, 2) + np.power((m * omega - k / omega), 2))
+        fase_shift = np.arccos(f/imped)
         a_ab = 2 * force_0 * beta * m / (omega * np.power(imped, 2))
         a_el = force_0 * m * (np.power(omega_0, 2) - np.power(omega, 2)) / (np.power(imped, 2) * np.power(omega, 2))
 
@@ -515,6 +499,7 @@ def drg_wymuszone(m, k, f, force_0, omega):
         print('Amplituda drgan wynosi: %f m.\n' % np.abs(amplitude))
         print('Okres drgan wlasnych wynosi: %f s.\n' % period_0)
         print('Czestotliwosc drgan wlasnych wynosi: %f 1/s.\n' % freq_0)
+        print('Przesuniecie fazowe wynosi: %f rad.\n' % fase_shift)
         print('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
         if pre_omega_r < 0:
             print('Czestosc rezonansowa nieokreslona.\n')
@@ -529,11 +514,11 @@ def drg_wymuszone(m, k, f, force_0, omega):
         print('Amplituda elastyczna wynosi: %f m.\n' % np.abs(a_el))
 
         # Zapis do pliku:
-        """
         plik = open('dane_drg_wym.doc', 'w')
         plik.write('Amplituda drgan wynosi: %f m.\n' % np.abs(amplitude))
         plik.write('Okres drgan wlasnych wynosi: %f s.\n' % period_0)
         plik.write('Czestotliwosc drgan wlasnych wynosi: %f 1/s.\n' % freq_0)
+        plik.write('Przesuniecie fazowe wynosi: %f rad.\n' % fase_shift)
         plik.write('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
         if pre_omega_r < 0:
             plik.write('Czestosc rezonansowa nieokreslona.\n')
@@ -549,11 +534,10 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plik.write('Amplituda absorpcyjna wynosi: %f m.\n' % np.abs(a_ab))
         plik.write('Amplituda elastyczna wynosi: %f m.\n' % np.abs(a_el))
         plik.close()
-        """
 
         # Generowanie wykresow. Wykresy postaci drgan i zaleznosci amplitud od czestotliwosci:
         t = np.linspace(0, 50, 500)
-        x = amplitude * np.cos(omega * t)
+        x = amplitude * np.sin(omega * t - fase_shift)
         om_space = np.linspace(0.2, 50, 500)
         im_space = np.sqrt(np.power(f, 2) + np.power((m * om_space - k / om_space), 2))
         a_ab_space = 2 * force_0 * beta * m / (om_space * np.power(im_space, 2))
@@ -563,13 +547,13 @@ def drg_wymuszone(m, k, f, force_0, omega):
         amplitude_space = force_0 / (om_space * z_space)
 
         plt.subplot(211)
-        plt.plot(t, x, color='r', lw=1, ls='-', label='f(x) = Acos(wt)')
+        plt.plot(t, x, color='r', lw=1, ls='-', label='f(x) = Asin(wt-a)')
         plt.legend(loc='upper right')
         plt.xlabel('t', fontsize=8)
         plt.xticks(np.arange(0, 51, step=2))
         plt.ylabel('f(t)', fontsize=8)
         plt.grid(True)
-        plt.title('Wykres funkcji drgań wymuszonych postaci: Acos(wt)')
+        plt.title('Wykres funkcji drgań wymuszonych postaci: Asin(wt-a)')
         plt.subplot(212)
         plt.plot(om_space, a_ab_space, color='r', lw=1, ls='-', label='Aab = 2Fbm/wZ^2')
         plt.plot(om_space, a_el_space, color='b', lw=1, ls='-.', label='Ael = Fm(w0^2-w^2)/(Zw)^2')
@@ -580,16 +564,18 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plt.ylabel('A (wartosc wychylenia z polozenia rownowagi)', fontsize=8)
         plt.grid(True)
         plt.title('Wykresy zaleznosci amplitudy absorbcyjnej, elastycznej i "glownej" od czestosci sily wymuszajacej.')
-        # plt.savefig('drg_tl.png', dpi=72)
+        plt.savefig('drg_tl.png', dpi=72)
         plt.show()
 
     elif beta == 0 and np.power(omega_0, 2) == np.power(omega, 2):
         # Obliczenia:
         imped = np.sqrt(np.power(f, 2) + np.power((m * omega - k / omega), 2))
+        fase_shift = np.arccos(f / imped)
 
         # Wyswietlanie najwazniejszych danych:
         print('Okres drgan wlasnych wynosi: %f s.\n' % period_0)
         print('Czestotliwosc drgan wlasnych wynosi: %f 1/s.\n' % freq_0)
+        print('Przesuniecie fazowe wynosi: %f rad.\n' % fase_shift)
         print('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
         if pre_omega_r < 0:
             print('Czestosc rezonansowa nieokreslona.\n')
@@ -604,10 +590,10 @@ def drg_wymuszone(m, k, f, force_0, omega):
         print('Amplitudy absorbcyjna i elastyczna również.\n')
 
         # Zapis do pliku:
-        """
         plik = open('dane_drg_wym.doc', 'w')
         plik.write('Okres drgan wlasnych wynosi: %f s.\n' % period_0)
         plik.write('Czestotliwosc drgan wlasnych wynosi: %f 1/s.\n' % freq_0)
+        plik.write('Przesuniecie fazowe wynosi: %f rad.\n' % fase_shift)
         plik.write('Wspolczynnik tlumienia wynosi: %f 1/s.\n' % beta)
         if pre_omega_r < 0:
             plik.write('Czestosc rezonansowa nieokreslona.\n')
@@ -616,14 +602,12 @@ def drg_wymuszone(m, k, f, force_0, omega):
         else:
             plik.write('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
             plik.write('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r) 
-        
-        plik.write('Czestosc rezonansowa wynosi: %f 1/s.\n' % omega_r)
-        plik.write('Czestotliwosc rezonansowa wynosi: %f Hz.\n' % freq_r)
+
         plik.write('Impedancja mechaniczna wynosi: %f kg/s.\n' % imped)
         plik.write('Amplituda dąży do nieskończoności.\n')
         plik.write('Amplitudy absorbcyjna i elastyczna również.\n')
         plik.close()
-        """
+
         # Generowanie wykresow. Wykresy zaleznosci amplitud od czestotliwosci:
         om_space = np.linspace(0.2, 50, 500)
         im_space = np.sqrt(np.power(f, 2) + np.power((m * om_space - k / om_space), 2))
@@ -642,7 +626,7 @@ def drg_wymuszone(m, k, f, force_0, omega):
         plt.ylabel('A (wartosc wychylenia z polozenia rownowagi)', fontsize=8)
         plt.grid(True)
         plt.title('Wykresy zaleznosci amplitudy absorbcyjnej, elastycznej i glownej od czestosci sily wymuszajacej.')
-        # plt.savefig('drg_tl.png', dpi=72)
+        plt.savefig('drg_tl.png', dpi=72)
         plt.show()
 
 
@@ -793,7 +777,7 @@ def dod_drgan():
     plt.ylabel('f(x)', fontsize=8)
     plt.grid(True)
     plt.title('Suma danych fal na strunie o dlugości %f m.' % dl)
-    # plt.savefig('skl_drgan.png', dpi=72)
+    plt.savefig('skl_drgan.png', dpi=72)
     plt.show()
 
 
